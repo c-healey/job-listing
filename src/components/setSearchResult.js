@@ -2,7 +2,6 @@ const setSearchResult = (pickedFilters, jobs) => {
   let jobSearch = JSON.parse(JSON.stringify(jobs));
 
   for (let key in pickedFilters) {
-    // console.log(key, pickedFilters[key]);
     if (pickedFilters[key].length > 0) {
       // find all jobs that match
       jobSearch = jobSearch.filter((job) => {
@@ -20,8 +19,7 @@ const setSearchResult = (pickedFilters, jobs) => {
       });
     }
   }
-  // console.log("jobSearch = ", jobSearch);
-  // console.log("jobs = ", jobs);
+
   return jobSearch;
 };
 

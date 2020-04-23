@@ -3,12 +3,12 @@ import ResultCard from "./ResultsCard";
 
 const ResultList = (props) => {
   let jobsSearch = props.jobsSearch;
-  // console.log("resultlist jobs", props, typeof props);
+
   const OnClickResultList = (e) => {
     let filterValue = "";
     let filterAction = "";
     let category = "";
-    // console.log("resultlist on click", e.target);
+
     if (e.target.classList.contains("filter-option")) {
       category = e.target.dataset.filter;
       filterValue = e.target.innerHTML;

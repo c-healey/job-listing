@@ -193,6 +193,17 @@ h2 {
   grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
   grid-gap: 0 1.5rem;
 }
+.filter-field--content {
+  text-align: left;
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  // justify-content: space-between;
+  & > img {
+    background-color: black;
+    padding: 1.5px;
+    border-radius: 2px;
+  }
+}
 
 @include respond(phone) {
   .container {
