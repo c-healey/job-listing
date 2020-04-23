@@ -9,12 +9,14 @@ const setSearchResult = (pickedFilters, jobs) => {
           if (
             typeof job[key] === "string" &&
             pickedFilters[key].includes(job[key])
-          )
+          ) {
             return true;
-
-          for (let filterVal of job[key]) {
-            if (pickedFilters[key].includes(filterVal)) return true;
           }
+
+          for (let filterVal of pickedFilters[key]) {
+            if (!job[key].includes(filterVal)) return false;
+          }
+          return true;
         }
       });
     }
