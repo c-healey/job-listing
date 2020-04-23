@@ -1,6 +1,6 @@
 {
   "name": "job-listing",
-  "homepage": "https://c-healey.github.io/job-listing",
+  
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -38,3 +38,4 @@
     ]
   }
 }
+

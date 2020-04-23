@@ -4,9 +4,6 @@ class ResultsCard extends React.Component {
   render() {
     let item = this.props.item;
 
-    // for(let i=0;)
-    //   console.log("item", item);
-    // });
     return (
       <div className={item.featured ? "card featured" : "card"} key={item.id}>
         <div className="company-logo">

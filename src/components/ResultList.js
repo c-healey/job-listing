@@ -1,39 +1,43 @@
 import React from "react";
 import ResultCard from "./ResultsCard";
-import "./ResultList.css";
 
-class ResultList extends React.Component {
-  onClickResultList = (e) => {
+const ResultList = (props) => {
+  let jobsSearch = props.jobsSearch;
+  // console.log("resultlist jobs", props, typeof props);
+  const OnClickResultList = (e) => {
+    let filterValue = "";
+    let filterAction = "";
+    let category = "";
+    // console.log("resultlist on click", e.target);
     if (e.target.classList.contains("filter-option")) {
-      const searchValue = e.target.innerHTML;
-      let searchFilter = e.target.dataset.filter;
-      // const tag = e.target.data;
+      category = e.target.dataset.filter;
+      filterValue = e.target.innerHTML;
+      filterAction = "add";
+
       document
         .querySelector(`#f${e.target.innerHTML.replace(" ", "")}`)
         .classList.remove("hide");
-
-      this.props.onSetFilters(searchFilter, searchValue, "add");
     }
+    props.handleStateUpdates(category, filterValue, filterAction);
   };
-  render() {
-    if (this.props.jobs.length > 0) {
-      const results = this.props.jobs.map((result, idx) => {
-        return <ResultCard key={idx} item={result} />;
-      });
-      return (
-        <div className="results">
-          <div
-            className="result-list"
-            onClick={(e) => {
-              this.onClickResultList(e);
-            }}
-          >
-            {results}
-          </div>
+
+  if (jobsSearch.length > 0) {
+    const results = jobsSearch.map((result, idx) => {
+      return <ResultCard key={idx} item={result} />;
+    });
+    return (
+      <div className="results">
+        <div
+          className="result-list"
+          onClick={(e) => {
+            OnClickResultList(e);
+          }}
+        >
+          {results}
         </div>
-      );
-    }
-    return <div>Oh NO jobs. Bummer</div>;
+      </div>
+    );
   }
-}
+  return <div>Oh NO jobs. Bummer</div>;
+};
 export default ResultList;
